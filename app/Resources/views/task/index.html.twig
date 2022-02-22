@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<h2 class="page-header">Tasks</h2>
+<table class="table table-striped">
+      <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Task</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for task in tasks %}
+    <tr>
+      <th scope="row">{{task.id}}</th>
+      <td>{{task.name}}</td>
+      <td>{{task.status}}</td>
+      <td>
+      <a href="/task/edit/{{task.id}}" class="btn btn-light">Edit</a>
+      <a href="/task/delete/{{task.id}}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+
+  </table>
+{% endblock %}
